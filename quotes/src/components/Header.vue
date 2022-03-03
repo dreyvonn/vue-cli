@@ -11,9 +11,11 @@
                         aria-valuenow="25"
                         aria-valuemin="0"
                         aria-valuemax="100"
-                        :style="{width: (quoteCount / maxQuotes) * 100 + '%'}"
+                        :style="{ width: (quoteCount / maxQuotes) * 100 + '%' }"
                     >
-                        {{ quoteCount }} / {{ maxQuotes }}
+                        <p v-show="quoteCount != 0">
+                            {{ quoteCount }} / {{ maxQuotes }}
+                        </p>
                     </div>
                 </div>
             </div>
