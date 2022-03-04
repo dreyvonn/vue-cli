@@ -8,12 +8,22 @@
             >
                 <h1>Filters and Mixins</h1>
                 <p>{{ text | toUppercase | to-lowercase }}</p>
+                <hr>
+                <input v-model="filterText">
+                <ul>
+                    <li v-for="fruit in filteredFruits" :key="fruit">{{ fruit }}</li>
+                </ul>
+                <hr>
+                <app-list></app-list>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import List from './List.vue';
+    import { fruitMixin } from './fruitMixin';
+
     export default {
         data() {
             return {
@@ -25,6 +35,10 @@
                 return value.toUpperCase();
             },
         },
+        components: {
+            appList: List
+        },
+        mixins: [fruitMixin]
     };
 </script>
 
